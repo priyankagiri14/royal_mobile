@@ -92,18 +92,16 @@
                     android:weightSum="4"
                     android:layout_below="@+id/lastname"
                     android:layout_marginTop="@dimen/_10sdp">
-                    <SearchView
-
+                    <AutoCompleteTextView
+                        android:singleLine="true"
+                        android:hint="Search here"
                         android:id="@+id/agentsearchview"
                         android:layout_width="0dp"
-                        android:clickable="true"
-                        android:onClick="searchviewClickable"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
                         android:background="@color/white">
                         <requestFocus/>
-                    </SearchView>
-
+                    </AutoCompleteTextView>
 
 
                     <!--<EditText
@@ -181,11 +179,44 @@
                         android:textColor="#000"
                         android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
+                <!-- .........Country Spinner......-->
 
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/ll_nationality"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="10dp"
+                    android:weightSum="2">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".8"
+                        android:background="@color/greenontrack"
+                        android:padding="5dp"
+                        android:text="@string/id_nationality"
+                        android:textColor="@color/white" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.2"
+                        android:background="@drawable/border_layout_sub_agent">
+
+                        <Spinner
+                            android:id="@+id/sp_country_nationality"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:entries="@array/spn_countery">
+                        </Spinner>
+
+                    </LinearLayout>
+                </LinearLayout>
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/passporttext"
+                    android:layout_marginTop="5dp"
                     android:visibility="gone"
                     android:textColorHint="@color/greenontrack">
 
@@ -259,32 +290,32 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/netwrokrg"
                     android:layout_gravity="center_horizontal">
-                        <RadioButton
-                            android:layout_weight="1"
-                            android:id="@+id/vodacom"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vodacom" />
+                    <RadioButton
+                        android:layout_weight="1"
+                        android:id="@+id/vodacom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vodacom" />
 
-                        <RadioButton
-                            android:layout_weight="1"
-                            android:id="@+id/cellc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="CellC" />
+                    <RadioButton
+                        android:layout_weight="1"
+                        android:id="@+id/cellc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CellC" />
 
-                        <RadioButton
-                            android:layout_weight="1"
-                            android:id="@+id/telkom"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Telkom" />
-                        <RadioButton
-                            android:layout_weight="1"
-                            android:id="@+id/mtn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="MTN" />
+                    <RadioButton
+                        android:layout_weight="1"
+                        android:id="@+id/telkom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Telkom" />
+                    <RadioButton
+                        android:layout_weight="1"
+                        android:id="@+id/mtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="MTN" />
 
                 </RadioGroup>
 
@@ -320,12 +351,12 @@
                     android:id="@+id/tvaddress"
                     android:textColorHint="@color/greenontrack">
                     <EditText
+                        android:focusable="false"
                         android:hint="Address"
                         android:id="@+id/address"
                         android:textColor="@color/greenontrack"
                         android:textSize="@dimen/_12sdp"
                         android:gravity="left"
-                        android:focusable="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -352,7 +383,7 @@
                     android:id="@+id/tvsubhurb"
                     android:textColorHint="@color/greenontrack">
                     <EditText
-                        android:hint="Subhurb"
+                        android:hint="Suburb"
                         android:id="@+id/subhurb"
                         android:textColor="@color/greenontrack"
                         android:textSize="@dimen/_12sdp"

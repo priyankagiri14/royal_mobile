@@ -40,6 +40,8 @@ repositories {
 }
 dependencies {
     //noinspection GradleCompatible
+    // getting dialing code library
+    implementation 'io.michaelrocks:libphonenumber-android:8.11.0'
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.byteshaft.requests:requests:0.5.2'

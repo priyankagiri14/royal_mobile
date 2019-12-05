@@ -8,6 +8,12 @@
         app:showAsAction="collapseActionView"
         android:title="Offline RICA" />
 
+    <item
+        android:id="@+id/update_group_rica_agent"
+        android:orderInCategory="100"
+        app:showAsAction="collapseActionView"
+        android:title="Change Rica" />
+
 
 
     <item

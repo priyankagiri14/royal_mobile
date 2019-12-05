@@ -29,6 +29,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
+        <activity android:name=".Driver.DriverSubAgentRegister.SubAgentRegister"></activity>
+        <activity android:name=".Agent.UpdateAgentRicaGroupName.UpdateAgentRicaGroupAgent" />
+        <activity android:name=".Driver.UpdateDriverRicaGroupName.UpdateDriverRicaGroup" />
         <activity android:name="com.app.mobile.royal.AgentAllocationTab"></activity>
         <activity android:name="com.app.mobile.royal.AnyAgentAllocation.AnyAgentAllocation" />
         <activity android:name="com.app.mobile.royal.Driver.SignUpAgent.EditAgentForm" />
