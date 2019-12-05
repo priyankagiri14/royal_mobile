@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Driver.SignUpAgent.SignUpAgent2">
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/greenontrack">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            />
+    </Toolbar>
+
+    <ScrollView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:id="@+id/linearTextView"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:textSize="@dimen/_20sdp"
+            android:textColor="@color/greenontrack"
+            android:gravity="left"
+            android:text="RICA Info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/border_layout">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvricauser"
+                android:textColorHint="@color/greenontrack">
+                <EditText
+                    android:inputType="number"
+                    android:hint="Rica User"
+                    android:id="@+id/ricauser"
+                    android:textColor="@color/greenontrack"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvricapassword"
+                android:textColorHint="@color/greenontrack">
+                <EditText
+                    android:hint="Rica Password"
+                    android:id="@+id/ricapassword"
+                    android:inputType="textPassword"
+                    android:textColor="@color/greenontrack"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvricagroup"
+                android:textColorHint="@color/greenontrack">
+                <EditText
+                    android:hint="Rica Group"
+                    android:id="@+id/ricagroup"
+                    android:textColor="@color/greenontrack"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:textSize="@dimen/_20sdp"
+            android:textColor="@color/greenontrack"
+            android:gravity="left"
+            android:text="Contact Info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/border_layout">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvemail"
+                android:textColorHint="@color/greenontrack">
+                <EditText
+                    android:hint="Email address"
+                    android:id="@+id/email"
+                    android:textColor="@color/greenontrack"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvmobno"
+                android:textColorHint="@color/greenontrack">
+                <EditText
+                    android:inputType="number"
+                    android:hint="Mobile No."
+                    android:id="@+id/mobno"
+                    android:textColor="@color/greenontrack"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvaltmobno"
+                android:textColorHint="@color/greenontrack">
+                <EditText
+                    android:inputType="number"
+                    android:hint="Alternate Mobile No."
+                    android:id="@+id/altmobno"
+                    android:textColor="@color/greenontrack"
+                    android:textSize="@dimen/_12sdp"
+                    android:gravity="left"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:id="@+id/next"
+            android:textColor="@color/white"
+            android:background="@color/greenontrack"/>
+
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

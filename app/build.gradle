@@ -1,0 +1,116 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+android {
+    lintOptions {
+
+        checkReleaseBuilds false
+
+    }
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'armeabi-v7a'
+            universalApk true
+        }
+    }
+    compileSdkVersion 28
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "com.app.mobile.royal"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 2
+        versionName "1.0.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+repositories {
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+dependencies {
+    //noinspection GradleCompatible
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.byteshaft.requests:requests:0.5.2'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation('org.apache.httpcomponents:httpcore:4.3') {
+        exclude module: "httpclient"
+    }
+    implementation('org.apache.httpcomponents:httpmime:4.3') {
+        exclude module: "httpclient"
+    }
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'org.apache.commons:commons-io:1.3.2'
+    implementation 'com.github.maayyaannkk:ImagePicker:1.0.0'
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    implementation 'info.androidhive:fontawesome:0.0.5'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+    implementation 'net.alhazmy13.MediaPicker:libary:2.4.4'
+    implementation 'com.github.maayyaannkk:ImagePicker:1.0.2'
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.github.AravindVijay7:GeoLocator-Android:1.0.2'
+    implementation 'com.github.GrenderG:Toasty:1.4.2'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.github.smart-fun:Perm:1.1.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.github.levitnudi:LegacyTableView:1.2'
+    implementation('me.sudar:zxing-orient:2.1.1@aar')
+            {
+                exclude module: "com.google.zxing:core"
+
+            }
+    implementation 'android.arch.persistence.room:runtime:1.1.1';
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1';
+
+    implementation 'com.mindorks.android:placeholderview:1.0.3'
+    annotationProcessor 'com.mindorks.android:placeholderview-compiler:1.0.3'
+    implementation 'com.google.android.libraries.places:places:1.0.0'
+
+    // RecyclerView dependency is added to override the
+    // default 25.4.1 RecyclerView dependency used by placeholderview.
+    // If you are using the support libraries other than 25.x in the project
+    implementation 'com.android.support:recyclerview-v7:28.0.0' // example: 27.1.0
+    implementation 'com.veyo:autorefreshnetworkconnection:1.0.6'
+    implementation 'com.google.android.play:core:1.6.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta05'
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-plugin-places-v8:0.9.0'
+    implementation 'com.kyanogen.signatureview:signature-view:1.2'
+    implementation 'com.novoda:merlin:1.2.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+}
+
+android {
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
+    }
+}

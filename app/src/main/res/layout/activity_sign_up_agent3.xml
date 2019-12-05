@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Driver.SignUpAgent.SignUpAgent3">
+
+
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@color/greenontrack">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            />
+    </Toolbar>
+
+    <ScrollView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:id="@+id/linearTextView"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:textSize="@dimen/_20sdp"
+            android:textColor="@color/greenontrack"
+            android:gravity="left"
+            android:text="Commision 1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/border_layout"
+        android:layout_marginTop="@dimen/_30sdp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/networktext1"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Network"
+                android:text="Vodacom"
+                android:clickable="false"
+                android:focusable="false"
+                android:id="@+id/network1"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dailyratetext1"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Daily Rate"
+                android:id="@+id/dailyrate1"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/simcosttext1"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Sim Cost"
+                android:id="@+id/simcost1"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activatecomtext1"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Activation Commision"
+                android:id="@+id/activatecom1"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ogrtext1"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="OGR %"
+                android:id="@+id/ogr1"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cibtext1"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="CIB"
+                android:id="@+id/cib1"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/simstext1"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Sims"
+                android:id="@+id/sims1"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:textSize="@dimen/_20sdp"
+        android:textColor="@color/greenontrack"
+        android:gravity="left"
+        android:text="Commision 2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/border_layout"
+        android:layout_marginTop="@dimen/_30sdp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/networktext2"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Network"
+                android:text="MTN"
+                android:clickable="false"
+                android:focusable="false"
+                android:id="@+id/network2"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dailyratetext2"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Daily Rate"
+                android:id="@+id/dailyrate2"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/simcosttext2"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Sim Cost"
+                android:id="@+id/simcost2"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activatecomtext2"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Activation Commision"
+                android:id="@+id/activatecom2"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ogrtext2"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="OGR %"
+                android:id="@+id/ogr2"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cibtext2"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="CIB"
+                android:id="@+id/cib2"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/simstext2"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Sims"
+                android:id="@+id/sims2"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:textSize="@dimen/_20sdp"
+        android:textColor="@color/greenontrack"
+        android:gravity="left"
+        android:text="Commision 3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/border_layout"
+        android:layout_marginTop="@dimen/_30sdp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/networktext3"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Network"
+                android:text="Cell C"
+                android:clickable="false"
+                android:focusable="false"
+                android:id="@+id/network3"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dailyratetext3"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Daily Rate"
+                android:id="@+id/dailyrate3"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/simcosttext3"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Sim Cost"
+                android:id="@+id/simcost3"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activatecomtext3"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Activation Commision"
+                android:id="@+id/activatecom3"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ogrtext3"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="OGR %"
+                android:id="@+id/ogr3"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cibtext3"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="CIB"
+                android:id="@+id/cib3"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/simstext3"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Sims"
+                android:id="@+id/sims3"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:textSize="@dimen/_20sdp"
+        android:textColor="@color/greenontrack"
+        android:gravity="left"
+        android:text="Commision 4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/border_layout"
+        android:layout_marginTop="@dimen/_30sdp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/networktext4"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Network"
+                android:text="Telkom"
+                android:clickable="false"
+                android:focusable="false"
+                android:id="@+id/network4"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dailyratetext4"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Daily Rate"
+                android:id="@+id/dailyrate4"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/simcosttext4"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Sim Cost"
+                android:id="@+id/simcost4"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/activatecomtext4"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Activation Commision"
+                android:id="@+id/activatecom4"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ogrtext4"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="OGR %"
+                android:id="@+id/ogr4"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cibtext4"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="CIB"
+                android:id="@+id/cib4"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/simstext4"
+            android:textColorHint="@color/greenontrack">
+            <EditText
+                android:inputType="number"
+                android:hint="Sims"
+                android:id="@+id/sims4"
+                android:textColor="@color/greenontrack"
+                android:textSize="@dimen/_12sdp"
+                android:gravity="left"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+        <Button
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:id="@+id/next"
+            android:textColor="@color/white"
+            android:background="@color/greenontrack"/>
+
+
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

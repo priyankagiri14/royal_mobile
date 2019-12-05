@@ -1,0 +1,28 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="4">
+
+    <TextView
+        android:id="@+id/agents_batches_received_list_text"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_13sdp"
+        android:textColor="#000"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:id="@+id/agent_batches_value_received_list_text"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:textSize="@dimen/_13sdp"
+        android:textColor="#000"
+        android:layout_margin="5dp"/>
+
+
+</LinearLayout>

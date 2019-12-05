@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:orientation="vertical"
+    >
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_rica_userName"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:textColorHint="@color/greenontrack">
+        <EditText
+            android:inputType="text"
+            android:hint="Rica Username"
+            android:id="@+id/et_rica_username"
+            android:textColor="@color/greenontrack"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_rica_password"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:textColorHint="@color/greenontrack">
+        <EditText
+            android:inputType="textPassword"
+            android:hint="Rica Password"
+            android:id="@+id/et_rica_user_password"
+            android:textColor="@color/greenontrack"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="left"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_rica_group_Name"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:textColorHint="@color/greenontrack">
+        <EditText
+            android:hint="Rica Group Name"
+            android:id="@+id/et_rica_group_name"
+            android:textColor="@color/greenontrack"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="left"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/cb_accept_rica_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:gravity="center"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="12sp"
+            />
+        <TextView
+            android:textColor="@color/colorPrimaryDark"
+            android:id="@+id/tv_accept_agreement"
+            android:layout_gravity="center_vertical"
+            android:text="@string/accept_agreement_rica"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_submit_rica"
+        android:layout_margin="30dp"
+        android:layout_gravity="center_horizontal"
+        android:textColor="@color/white"
+        android:text="Submit"
+        android:background="@drawable/agentbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
