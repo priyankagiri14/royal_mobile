@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.mapbox.mapboxsdk:mapbox-android-telemetry:4.4.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e376b6f60c502d25c5417d655a57606a/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e376b6f60c502d25c5417d655a57606a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/77a5ca5912c62a17d21e9429ee18d3d1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/77a5ca5912c62a17d21e9429ee18d3d1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

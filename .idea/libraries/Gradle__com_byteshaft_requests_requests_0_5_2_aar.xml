@@ -1,12 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.byteshaft.requests:requests:0.5.2@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2c77f08abc6ee36b9f57aa1ed0960ed1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2c77f08abc6ee36b9f57aa1ed0960ed1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/44a76371e7a54b72e0791feb1d78c15b/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/44a76371e7a54b72e0791feb1d78c15b/res" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.byteshaft.requests/requests/0.5.2/a57ca4a84052957af477a5db2abd79bd01c3de82/requests-0.5.2-javadoc.jar!/" />
-    </JAVADOC>
+    <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.byteshaft.requests/requests/0.5.2/1907eb63f604216a24ba33f9f99f61298bbf02c0/requests-0.5.2-sources.jar!/" />
     </SOURCES>
