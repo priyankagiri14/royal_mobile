@@ -28,7 +28,8 @@ public class RetrofitToken {
         // added query param of deviceType
         Interceptor clientInterceptor = chain -> {
             Request request = chain.request();
-            HttpUrl url = request.url().newBuilder().addQueryParameter("deviceType", "MOBILE").build();
+            HttpUrl url = request.url().newBuilder().addQueryParameter("deviceType", "MOBILE").
+                    addQueryParameter("appName","ROYAL_MOBILE").build();
             request = request.newBuilder().url(url).build();
             return chain.proceed(request);
         };
