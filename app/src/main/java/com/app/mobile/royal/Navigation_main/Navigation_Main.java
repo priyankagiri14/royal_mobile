@@ -212,8 +212,10 @@ public class Navigation_Main extends AppCompatActivity
                         String firstName = response.body().getBody().getFirstName();
                         String userid = response.body().getBody().getId().toString();
                         Integer warehouse_id=response.body().getBody().getWarehouseId();
-                        warehousesharedprefeditor.putInt("warehouseid",warehouse_id);
-                        warehousesharedprefeditor.apply();
+                        if(warehouse_id!=null) {
+                            warehousesharedprefeditor.putInt("warehouseid", warehouse_id);
+                            warehousesharedprefeditor.apply();
+                        }
                         if(!firstName.equals("null"))
                         {
                             Pref.putFirstName(MyApp.getContext(),firstName);

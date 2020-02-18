@@ -316,7 +316,7 @@
     <string name="title_activity_assign_batches_tab">AssignBatchesTab</string>
     <string name="title_activity_assign_batch_tab">AssignBatchTab</string>
     <string name="accept_agreement_rica">By continuing, I accept Rica\'s Terms and Service. Click here to read.</string>
-    <string name="map_box_token">pk.eyJ1IjoibXNpa3JpIiwiYSI6ImNrM2d5bWh4NjA0c3EzZHBoZmEwYXh4Y2oifQ.w6V3KZZRfzq64U9HvtcnFw</string>
+    <string name="map_box_token">pk.eyJ1Ijoicm95YWxtb2JpbGUiLCJhIjoiY2s2cm1veTUyMDZ5NDNtcWlma252em1pNSJ9.5YZ_NVlOuPEHBok8P6kpdg</string>
     <string name="tv_address_individual">Address</string>
     <string name="et_street">Street</string>
     <string name="proof_res">Proof Residence</string>

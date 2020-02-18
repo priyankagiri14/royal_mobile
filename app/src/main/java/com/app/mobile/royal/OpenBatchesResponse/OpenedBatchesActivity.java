@@ -45,6 +45,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
 public class OpenedBatchesActivity extends AppCompatActivity implements View.OnClickListener, LocationListener, NetworkStateReceiver.NetworkStateReceiverListener {
 
     public static String message;
@@ -83,26 +84,8 @@ public class OpenedBatchesActivity extends AppCompatActivity implements View.OnC
         adapter.notifyDataSetChanged();
         listView.setAdapter(adapter);
         progressBar.cancel();
-        listviewclick();
     }
 
-    /**
-     * On click of the list item, it will jump to the Rica registration form activity with the value gor from clicking on thr list item.
-     */
-    private void listviewclick() {
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                String value = bodyArrayList1.get(position).getNumber();
-                Log.d("Value is: ",value);
-
-                Intent intent = new Intent(OpenedBatchesActivity.this, Sim_allocation.class);
-                intent.putExtra("simcard",value);
-                startActivity(intent);
-            }
-        });
-    }
 
     /**
      * Thus method is initializing all the design components which will be used further for some functionalty.
@@ -259,47 +242,47 @@ public class OpenedBatchesActivity extends AppCompatActivity implements View.OnC
 //            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Stop", new DialogInterface.OnClickListener() {
 //                @Override
 //                public void onClick(DialogInterface dialog, int which) {
-                    AlertDialog alertDialog1 = new AlertDialog.Builder(OpenedBatchesActivity.this).create();
-                    alertDialog1.setMessage("Are You Sure You want to Stop This Batch");
-                    alertDialog1.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+            AlertDialog alertDialog1 = new AlertDialog.Builder(OpenedBatchesActivity.this).create();
+            alertDialog1.setMessage("Are You Sure You want to Stop This Batch");
+            alertDialog1.setButton(DialogInterface.BUTTON_POSITIVE, "Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
 
 //                            if (status_success == listsize) {
-                                String status = "stop";
-                                Web_Interface web_interface = RetrofitToken.getClient().create(Web_Interface.class);
-                                try {
-                                    JSONObject paramObject = new JSONObject();
-                                    paramObject.put("batchNo", batchvalue);
+                    String status = "stop";
+                    Web_Interface web_interface = RetrofitToken.getClient().create(Web_Interface.class);
+                    try {
+                        JSONObject paramObject = new JSONObject();
+                        paramObject.put("batchNo", batchvalue);
 
 
-                                    RequestBody body = RequestBody.create(MediaType.parse("application/json"), (paramObject).toString());
+                        RequestBody body = RequestBody.create(MediaType.parse("application/json"), (paramObject).toString());
 
-                                    Call<OpenCloseResponse> openCloseActivityCall = web_interface.requestOpenClose(latitude, longitude, status, body);
-                                    openCloseActivityCall.enqueue(new Callback<OpenCloseResponse>() {
-                                        @Override
-                                        public void onResponse(Call<OpenCloseResponse> call, Response<OpenCloseResponse> response) {
-                                            String message = response.body().getMessage();
-                                            Toast.makeText(OpenedBatchesActivity.this, message, Toast.LENGTH_SHORT).show();
-                                            batchid = "";
-                                            Pref.setBatchID(MyApp.getContext(), batchid);
-                                            progressBar.cancel();
-                                            Intent intent = new Intent(OpenedBatchesActivity.this, Agent_Mainactivity.class);
-                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                            startActivity(intent);
-                                            finish();
-                                        }
+                        Call<OpenCloseResponse> openCloseActivityCall = web_interface.requestOpenClose(latitude, longitude, status, body);
+                        openCloseActivityCall.enqueue(new Callback<OpenCloseResponse>() {
+                            @Override
+                            public void onResponse(Call<OpenCloseResponse> call, Response<OpenCloseResponse> response) {
+                                String message = response.body().getMessage();
+                                Toast.makeText(OpenedBatchesActivity.this, message, Toast.LENGTH_SHORT).show();
+                                batchid = "";
+                                Pref.setBatchID(MyApp.getContext(), batchid);
+                                progressBar.cancel();
+                                Intent intent = new Intent(OpenedBatchesActivity.this, Agent_Mainactivity.class);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent);
+                                finish();
+                            }
 
-                                        @Override
-                                        public void onFailure(Call<OpenCloseResponse> call, Throwable t) {
-                                            progressBar.cancel();
-                                            Toast.makeText(OpenedBatchesActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
+                            @Override
+                            public void onFailure(Call<OpenCloseResponse> call, Throwable t) {
+                                progressBar.cancel();
+                                Toast.makeText(OpenedBatchesActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
 //                            }
 //                             else {
 //                                progressBar.cancel();
@@ -312,23 +295,23 @@ public class OpenedBatchesActivity extends AppCompatActivity implements View.OnC
 //                                    }
 //                                });
 //                                alertDialog.show();                            }
-                        }
-                    });
-                    alertDialog1.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            progressBar.cancel();
-                            alertDialog1.cancel();
-                        }
-                    });
-                    alertDialog1.show();
-                    //Toast.makeText(OpenedBatchesActivity.this, "You are done with this Batch", Toast.LENGTH_SHORT).show();
+                }
+            });
+            alertDialog1.setButton(DialogInterface.BUTTON_NEGATIVE, "No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    progressBar.cancel();
+                    alertDialog1.cancel();
+                }
+            });
+            alertDialog1.show();
+            //Toast.makeText(OpenedBatchesActivity.this, "You are done with this Batch", Toast.LENGTH_SHORT).show();
 //                }
 //            });
 //            alertDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "Complete", new DialogInterface.OnClickListener() {
 //                @Override
 //                public void onClick(DialogInterface dialog, int which) {
-                   // progressBar.show();
+            // progressBar.show();
 
 //                    AlertDialog alertDialog2 = new AlertDialog.Builder(OpenedBatchesActivity.this).create();
 //                    alertDialog2.setMessage("Are You Sure You want to Complete this Batch");
@@ -381,7 +364,7 @@ public class OpenedBatchesActivity extends AppCompatActivity implements View.OnC
 //                        }
 //                    });
 //                    alertDialog2.show();
-                    //Toast.makeText(OpenCloseActivity.this, "You are completed with this batch", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(OpenCloseActivity.this, "You are completed with this batch", Toast.LENGTH_SHORT).show();
 //                }
 //            });
 //            alertDialog.show();

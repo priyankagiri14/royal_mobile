@@ -1,20 +1,33 @@
 package com.app.mobile.royal.Agent;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.room.Room;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.text.Editable;
 import android.text.Html;
 import android.text.TextUtils;
@@ -42,6 +55,10 @@ import com.app.mobile.royal.CredentialsCheck.CredentailsCheckResponse;
 import com.app.mobile.royal.Driver.DriverSubAgentRegister.CountryModel;
 import com.app.mobile.royal.Driver.Driver_Dashboard.Stocks_dashboard;
 import com.app.mobile.royal.utils.Utils;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.material.textfield.TextInputLayout;
 import com.location.aravind.getlocation.GeoLocator;
 import com.app.mobile.royal.Agent.model.Simallocatemodel;
@@ -71,6 +88,7 @@ import java.util.List;
 import java.util.Locale;
 
 import es.dmoral.toasty.Toasty;
+import fr.arnaudguyon.perm.Perm;
 import info.androidhive.fontawesome.FontTextView;
 import io.michaelrocks.libphonenumber.android.PhoneNumberUtil;
 import me.sudar.zxingorient.ZxingOrient;
@@ -82,7 +100,19 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class OfflineRica extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, NetworkStateReceiver.NetworkStateReceiverListener {
+public class OfflineRica extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, NetworkStateReceiver.NetworkStateReceiverListener, com.google.android.gms.location.LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+
+
+    private Double latitude=0.00, longitude=0.00;
+    private com.google.android.gms.location.LocationListener listener;
+    protected LocationManager locationManager;
+    Perm perm;
+    private Location mLocation;
+    private GoogleApiClient mGoogleApiClient;
+    private LocationRequest mLocationRequest;
+    private static final int PERMISSIONS_REQUEST = 1;
+    private static final String PERMISSIONS[] = { Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION};
 
     public EditText fname, lname, address, pincode, subhurb, idnum, city,passport,expirydate;
     public TextInputLayout idnumtext,passporttext,expirydatetext;
@@ -112,6 +142,8 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
     private AlertDialog alertDialog;
     private static final String TAG = "OfflineRica";
     private String region_1;
+    private LinearLayout ll_clear;
+    private Button btn_clear;
     private SharedPreferences sharedPreferencesForDriver;
     private SharedPreferences sharedPreferencesForAgent;
     private String isDriver,isAgent;
@@ -139,9 +171,12 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offline_rica);
+        initLocation();
         ll_nationality = findViewById(R.id.ll_nationality);
         regionspinner = (Spinner) findViewById(R.id.regionspinner);
         sp_country_nationality = findViewById(R.id.sp_country_nationality);
+        btn_clear = findViewById(R.id.btn_clear);
+        ll_clear = findViewById(R.id.ll_clear);
         networkStateReceiver = new NetworkStateReceiver();
         networkStateReceiver.addListener(this);
         this.registerReceiver(networkStateReceiver, new IntentFilter(android.net.ConnectivityManager.CONNECTIVITY_ACTION));
@@ -211,7 +246,7 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(s.length()>=4 && s.length()<7)
+                if(s.length()>=4)
                 {
                     Log.d(TAG, "afterTextChanged: four characters reach then hit api");
                     last_text_edit = System.currentTimeMillis();
@@ -272,12 +307,32 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
             city.setText("");
         } else {
             city.setText(Pref.getCity(this));
+            ll_clear.setVisibility(View.VISIBLE);
+
         }
 
         if (Pref.getSuburb(this) == null) {
             subhurb.setText("");
         } else {
             subhurb.setText(Pref.getSuburb(this));
+        }
+
+        if(Pref.getAddress(this) == null)
+        {
+            address.setText("");
+
+        }
+        else {
+            address.setText(Pref.getAddress(this));
+        }
+
+        if(Pref.getPostalCode(this) == null)
+        {
+            pincode.setText("");
+
+        }
+        else {
+            pincode.setText(Pref.getPostalCode(this));
         }
 
         regionspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -292,6 +347,23 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        btn_clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Pref.removeAddress(MyApp.getContext());
+                Pref.removeCity(MyApp.getContext());
+                Pref.removeSuburb(MyApp.getContext());
+                Pref.removePostalCode(MyApp.getContext());
+                address.setText("");
+                city.setText("");
+                pincode.setText("");
+                subhurb.setText("");
+                ll_clear.setVisibility(View.GONE);
+
 
             }
         });
@@ -649,14 +721,187 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
     }
 
     /**
-     * To get the location of the user, this function is used. It gets the current lat, long of that user.
+     * requesting location update if application comes to foreground
      */
-    private void getLocation() {
-        GeoLocator geoLocator = new GeoLocator(getApplicationContext(), this);
-        Log.d("startbranding", "getLocation: " + geoLocator.getLattitude() + "\n" + geoLocator.getLongitude());
-        address.setText(geoLocator.getAddress());
-        Log.d("locationda", address.toString());
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkLocation();
     }
+    /**
+     *
+     * @param location - gives latitude and laongitude and with the help of geocoder, we get the complete address
+     */
+    @Override
+    public void onLocationChanged(Location location) {
+        //location1.setText("Latitude: " + location.getLatitude() + "\n Longitude: " + location.getLongitude()  );
+        try {
+            Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+            List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+            latitude=location.getLatitude();
+            longitude=location.getLongitude();
+            Log.d(TAG, "onLocationChanged: lat:"+latitude+"  "+"long:"+longitude);
+        }catch(Exception e)
+        {
+            Toast.makeText(this, "" +e.getLocalizedMessage(),Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
+    private void initLocation() {
+        mGoogleApiClient = new GoogleApiClient
+                .Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        //checkLocation();
+    }
+
+    /**
+     *
+     * checking if location permission granted then start location updates
+     */
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+
+        startLocationUpdates();
+
+        mLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+
+        if(mLocation == null){
+            startLocationUpdates();
+        }
+    }
+    /**
+     * getting user current location
+     */
+    private void startLocationUpdates() {
+        mLocationRequest = LocationRequest.create()
+                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                .setInterval(10 * 1000)        // 10 seconds, in milliseconds
+                .setFastestInterval(1 * 1000);
+
+        perm = new Perm(this, PERMISSIONS);
+        if (perm.areGranted()) {
+            //   Toast.makeText(this, "All Permissions granted", Toast.LENGTH_LONG).show();
+        } else {
+            perm.askPermissions(PERMISSIONS_REQUEST);
+        }
+
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION, android.Manifest.permission.ACCESS_COARSE_LOCATION}, 101);
+        }
+        LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,
+                mLocationRequest, this);
+        Log.d("reque", "--->>>>");
+    }
+
+    /**
+     * if connection gets suspended then again connect to google api client
+     */
+    @Override
+    public void onConnectionSuspended(int i) {
+        Log.i(TAG, "Connection Suspended");
+        mGoogleApiClient.connect();
+    }
+
+    /**
+     *
+     * @param connectionResult contains the error code if google api client connection failed
+     */
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+        Log.i(TAG, "Connection failed. Error: " + connectionResult.getErrorCode());
+
+
+    }
+
+    /**
+     * if location not enabled then invoke the show alert dialog menthod
+     */
+    private boolean checkLocation() {
+        if(!isLocationEnabled())
+            showAlert();
+        return isLocationEnabled();
+    }
+
+    /**
+     * connecting google api client on onStart method
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mGoogleApiClient != null) {
+            mGoogleApiClient.connect();
+        }
+    }
+    /**
+     *if location provider is disabled then invoke alert dialog to ask for location permission
+     */
+    private void showAlert() {
+        if(!((Activity) OfflineRica.this).isFinishing())
+        {
+            //show dialog
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Please enable location")
+                    .setMessage("Open Gps Settings")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                            dialog.dismiss();
+                        }
+                    })
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+
+                        }
+                    });
+
+            AlertDialog alert = builder.create();
+            alert.show();
+        }
+    }
+    /**
+     *
+     * @return  which location provider are we connected to
+     */
+    private boolean isLocationEnabled() {
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
+                locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+    }
+
+
+
+    /**
+     * disconneting google api client when activity is stopped
+     */
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mGoogleApiClient.isConnected()) {
+            mGoogleApiClient.disconnect();
+        }
+    }
+
 
     @Override
     public void onClick(View v) {
@@ -732,6 +977,8 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
             paramObject.put("passportNo",passport);
             paramObject.put("passportExpiryDate",expirydate);
             paramObject.put("countryCode",id_country_code.toUpperCase());
+            paramObject.put("lat",latitude);
+            paramObject.put("lng",longitude);
             Log.d("simalloacte data",serial+"\n"+network +"\n" +idnum+"\n"+fname+"\n"+lname +"\n" +address +"\n" +postalcode +"\n" +subhurb +"\n" +city);
             RequestBody body = RequestBody.create(MediaType.parse("application/json"),(paramObject).toString());
             Call<Simallocatemodel> call= webInterface.simallocate(body);
@@ -751,6 +998,8 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
                             Toasty.success(getApplicationContext(),message).show();
                             Pref.setCity(MyApp.getContext(),city);
                             Pref.setSuburb(MyApp.getContext(),subhurb);
+                            Pref.setPostalCode(MyApp.getContext(),postalcode);
+                            Pref.setAddress(MyApp.getContext(), address);
                             if(isDriver!=null)
                             {
                                 Intent intent = new Intent(OfflineRica.this, Stocks_dashboard.class);
@@ -785,6 +1034,8 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
                     else{
                         Pref.setCity(MyApp.getContext(),city);
                         Pref.setSuburb(MyApp.getContext(),subhurb);
+                        Pref.setPostalCode(MyApp.getContext(),postalcode);
+                        Pref.setAddress(MyApp.getContext(), address);
                         Utils.stopProgress();
                         try {
                             JSONObject jObjError = new JSONObject(response.errorBody().string());
@@ -1001,6 +1252,8 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
             paramObject.put("region",region);
             paramObject.put("type",type);
             paramObject.put("idType",idtype);
+            paramObject.put("lat",latitude);
+            paramObject.put("lng",longitude);
             Log.d("simalloacte data",serial+"\n"+network +"\n" +idnum+"\n"+fname+"\n"+lname +"\n" +address +"\n" +postalcode +"\n" +subhurb +"\n" +city);
             RequestBody body = RequestBody.create(MediaType.parse("application/json"),(paramObject).toString());
             Call<Simallocatemodel> call= webInterface.simallocate(body);
@@ -1011,6 +1264,8 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
                     if(response.isSuccessful()||response.code()==200){
                         Pref.setCity(MyApp.getContext(),city);
                         Pref.setSuburb(MyApp.getContext(),subhurb);
+                        Pref.setPostalCode(MyApp.getContext(),postalcode);
+                        Pref.setAddress(MyApp.getContext(), address);
                         Utils.stopProgress();
                         String message=response.body().getMessage();
                         String success = response.body().getSuccess().toString();
@@ -1053,6 +1308,8 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
                     else{
                         Pref.setCity(MyApp.getContext(),city);
                         Pref.setSuburb(MyApp.getContext(),subhurb);
+                        Pref.setPostalCode(MyApp.getContext(),postalcode);
+                        Pref.setAddress(MyApp.getContext(), address);
                         Utils.stopProgress();
                         try {
                             JSONObject jObjError = new JSONObject(response.errorBody().string());
@@ -1224,7 +1481,7 @@ public class OfflineRica extends AppCompatActivity implements View.OnClickListen
 
     @Override
     public void networkUnavailable() {
-        Intent i=new Intent(this,NetworkError.class);
+        Intent i=new Intent(this, NetworkError.class);
         startActivity(i);
     }
 }

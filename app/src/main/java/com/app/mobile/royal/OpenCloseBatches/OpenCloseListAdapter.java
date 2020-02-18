@@ -1,11 +1,17 @@
 package com.app.mobile.royal.OpenCloseBatches;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.app.mobile.royal.Agent.Sim_allocation;
 import com.app.mobile.royal.R;
 import java.util.List;
 
@@ -22,11 +28,14 @@ public class OpenCloseListAdapter extends BaseAdapter {
     }
 
     class MyViewHolder {
-        public TextView serialreceivedtext;
-
+        public TextView serialopenedtext;
+        public LinearLayout linear_layout_serials;
+        public Button btn_rica;
 
         MyViewHolder(View view) {
-            serialreceivedtext = (TextView) view.findViewById(R.id.agents_serials_received_list_text);
+            serialopenedtext = (TextView) view.findViewById(R.id.agents_batches_opened_list_text);
+            linear_layout_serials = (LinearLayout) view.findViewById(R.id.linear_layout_serials);
+            btn_rica = view.findViewById(R.id.btn_rica);
         }
     }
 
@@ -65,9 +74,17 @@ public class OpenCloseListAdapter extends BaseAdapter {
             holder = (MyViewHolder) row.getTag();
         }
         //batchesgetcheckbox.setChecked(fa);
-
-        holder.serialreceivedtext.setText(serialsGetResponses.get(position));
-//        holder.batchesreceivedcheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        holder.serialopenedtext.setText(serialsGetResponses.get(position));
+        holder.btn_rica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String value = serialsGetResponses.get(position);
+                Log.d("Value is: ",value);
+                Intent intent = new Intent(context, Sim_allocation.class);
+                intent.putExtra("batches_received",value);
+                context.startActivity(intent);
+            }
+        });//        holder.batchesreceivedcheckbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 //            @Override
 //            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 //                if(isChecked)

@@ -423,20 +423,40 @@
                         </com.google.android.material.textfield.TextInputLayout>
 
 
-                        <Button
-                            android:id="@+id/activate_sim"
-                            android:layout_marginBottom="@dimen/_20sdp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                        <LinearLayout
                             android:padding="20dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="8dp"
-                            android:background="@drawable/agentbutton"
-                            android:text="Activate SIM"
-                            android:textColor="@color/white"/>
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <Button
+                                android:id="@+id/activate_sim"
+                                android:layout_marginBottom="@dimen/_10sdp"
+                                android:layout_width="120dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/agentbutton"
+                                android:text="Activate Sim"
+                                android:textColor="@color/white"/>
+                            <LinearLayout
+                                android:layout_marginLeft="20dp"
+                                android:visibility="gone"
+                                android:id="@+id/ll_clear"
+                                android:orientation="vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <Button
+                                    android:id="@+id/btn_clear"
+                                    android:layout_gravity="center_horizontal"
+                                    android:gravity="center"
+                                    android:layout_width="120dp"
+                                    android:text="Clear data"
+                                    android:background="@drawable/agentbutton"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/white"
+                                    />
 
+                            </LinearLayout>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>

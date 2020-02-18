@@ -15,6 +15,9 @@ public class Pref {
     public static final String FNAME = "firstName";
     public static final String USER_ID = "USER_ID";
     public static final String SUBURB ="suburb";
+    public static final String ADDRESS ="address";
+    public static final String POSTAL_CODE ="postal_code";
+
     public static final String IS_RICA = "isRica";
     public static SharedPreferences getPref(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context);
@@ -69,6 +72,26 @@ public class Pref {
         return getPref(context).getString(SUBURB, null);
     }
 
+
+    // for address
+    public static void setAddress(Context context,String address)
+    {
+        getPref(context).edit().putString(ADDRESS,address).commit();
+    }
+    public static String getAddress(Context context) {
+        return getPref(context).getString(ADDRESS, null);
+    }
+
+    // for address
+    public static void setPostalCode(Context context,String postal_code)
+    {
+        getPref(context).edit().putString(POSTAL_CODE,postal_code).commit();
+    }
+    public static String getPostalCode(Context context) {
+        return getPref(context).getString(POSTAL_CODE, null);
+    }
+
+
     // for rica value
     public static void setIsRica(Context context,String isRica)
     {
@@ -90,6 +113,26 @@ public class Pref {
     }
     public static String getCity(Context context) {
         return getPref(context).getString(CITY, null);
+    }
+
+    public static void removeCity(Context context)
+    {
+        getPref(context).edit().remove(CITY).commit();
+    }
+
+    public static void removeAddress(Context context)
+    {
+        getPref(context).edit().remove(ADDRESS).commit();
+    }
+
+    public static void removePostalCode(Context context)
+    {
+        getPref(context).edit().remove(POSTAL_CODE).commit();
+    }
+
+    public static void removeSuburb(Context context)
+    {
+        getPref(context).edit().remove(SUBURB).commit();
     }
 
     public static void putBatchArray(Context context,String batcharray)

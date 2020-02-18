@@ -1,12 +1,17 @@
 package com.app.mobile.royal.OpenBatchesResponse;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.app.mobile.royal.Agent.Sim_allocation;
 import com.app.mobile.royal.R;
 
 import java.util.List;
@@ -25,10 +30,15 @@ public class OpenedBatchesListAdapter extends BaseAdapter {
 
     class MyViewHolder {
         public TextView serialopenedtext;
+        public LinearLayout linear_layout_serials;
+        public Button btn_rica;
 
 
         MyViewHolder(View view) {
             serialopenedtext = (TextView) view.findViewById(R.id.agents_batches_opened_list_text);
+            linear_layout_serials = (LinearLayout) view.findViewById(R.id.linear_layout_serials);
+            btn_rica = view.findViewById(R.id.btn_rica);
+
         }
     }
 
@@ -82,6 +92,17 @@ public class OpenedBatchesListAdapter extends BaseAdapter {
 //                }
 //            }
 //        });
+
+        holder.btn_rica.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String value = serialsGetResponses.get(position).getNumber();
+                Log.d("Value is: ",value);
+                Intent intent = new Intent(context, Sim_allocation.class);
+                intent.putExtra("batches_received",value);
+                context.startActivity(intent);
+            }
+        });
         return row;
     }
 
