@@ -34,6 +34,10 @@ public class Body {
     @SerializedName("authority")
     @Expose
     private Authority authority;
+    @SerializedName("profile")
+    @Expose
+    private UserProfile profile;
+
     @SerializedName("warehouseId")
     @Expose
     private Integer warehouseId;
@@ -114,5 +118,13 @@ public class Body {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public UserProfile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(UserProfile profile) {
+        this.profile = profile;
     }
 }

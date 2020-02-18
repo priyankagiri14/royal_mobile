@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/greenontrack"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sub Agent Register"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="10dp"
+                android:text="Sub Agent Register"
+                android:textColor="@color/greenontrack"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:weightSum="4.2">
+
+                <CheckBox
+                    android:id="@+id/cb_vodacom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.2"
+                    android:checked="true"
+                    android:buttonTint="@color/greenontrack"
+                    android:clickable="false"
+                    android:text="Vodacom" />
+
+                <CheckBox
+                    android:buttonTint="@color/greenontrack"
+                    android:id="@+id/cb_mtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:text="MTN" />
+
+                <CheckBox
+                    android:buttonTint="@color/greenontrack"
+                    android:id="@+id/cb_cellc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:text="CellC" />
+
+                <CheckBox
+                    android:buttonTint="@color/greenontrack"
+                    android:id="@+id/cb_telkom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:clickable="false"
+                    android:text="Telkom" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:orientation="vertical"
+                android:paddingTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/border_layout"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/greenontrack"
+                        android:padding="5dp"
+                        android:text="@string/personal_info"
+                        android:textColor="@color/white" />
+
+
+                    <EditText
+                        android:id="@+id/et_first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_layout"
+                        android:hint="First Name"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:inputType="textPersonName"
+                        android:textColor="@color/input_login"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/et_last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/border_layout"
+                        android:hint="Last Name"
+                        android:inputType="textPersonName"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/input_login"
+                        android:textSize="14sp" />
+                    <!-- .........PHONE NO.......-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/et_mobile_no"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/border_layout"
+                            android:hint="Mobile No*"
+                            android:inputType="phone"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                    <!-- <LinearLayout
+                         android:layout_width="match_parent"
+                         android:layout_height="45dp"
+                         android:layout_marginTop="10dp"
+                         android:weightSum="2">
+
+                         <TextView
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent"
+                             android:layout_weight="1"
+                             android:background="@color/colorPrimary"
+                             android:padding="5dp"
+                             android:text="@string/identification_type"
+                             android:textColor="@color/white" />
+
+                         <LinearLayout
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent"
+                             android:layout_weight="1"
+                             android:background="@drawable/border_layout">
+
+                             <Spinner
+                                 android:id="@+id/sp_id_type"
+                                 android:layout_width="match_parent"
+                                 android:layout_height="match_parent"
+                                 android:entries="@array/spn_id_type"></Spinner>
+                         </LinearLayout>
+
+                     </LinearLayout>-->
+
+                    <!-- Choose id type -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_marginTop="15dp">
+                        <TextView
+                            android:layout_weight="1"
+                            android:gravity="left"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Choose ID Type:"
+                            android:textSize="@dimen/_12sdp"
+                            android:textColor="@color/greenontrack"/>
+                        <Spinner
+                            android:id="@+id/idspinner"
+                            android:layout_weight="1"
+                            android:gravity="right"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/id_spinner">
+
+                        </Spinner>
+                    </LinearLayout>
+
+
+                    <!-- .........Country Spinner......-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".8"
+                            android:background="@color/greenontrack"
+                            android:padding="5dp"
+                            android:text="@string/id_nationality"
+                            android:textColor="@color/white" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:background="@drawable/border_layout_sub_agent">
+
+                            <Spinner
+                                android:id="@+id/sp_country_nationality"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:entries="@array/spn_countery">
+
+                            </Spinner>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <!-- .........-Driving License No.......-->
+                    <LinearLayout
+                        android:id="@+id/ll_id_no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:layout_weight="1"
+                            android:id="@+id/et_id_no"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/border_layout"
+                            android:hint="Identification No*"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textSize="14sp" />
+
+
+                    </LinearLayout>
+
+                    <!-- .........PASSPORT.......-->
+
+                    <LinearLayout
+                        android:id="@+id/ll_passport"
+                        android:visibility="visible"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/et_passport_no"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/border_layout"
+                            android:hint="Passport No"
+                            android:inputType="phone"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textSize="14sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/border_layout_sub_agent"
+                            android:weightSum="1.3">
+
+                            <EditText
+                                android:id="@+id/et_passport_ex"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:hint="@string/passport_exp"
+                                android:inputType="date"
+                                android:padding="10dp"
+                                android:singleLine="true"
+                                android:textSize="14sp" />
+
+                            <info.androidhive.fontawesome.FontTextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/img_date_picker"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:layout_weight=".3"
+                                android:text="@string/fa_calendar_alt_solid"
+                                android:textColor="@color/greenontrack"
+                                android:textSize="30dp"
+                                app:solid_icon="true" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/border_layout"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@color/greenontrack"
+                        android:padding="5dp"
+                        android:text="@string/contact_detiails"
+                        android:textColor="@color/white" />
+
+
+                    <!-- .........Country Spinner......-->
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".8"
+                            android:background="@color/greenontrack"
+                            android:padding="5dp"
+                            android:text="@string/id_nationality"
+                            android:textColor="@color/white" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2"
+                            android:background="@drawable/border_layout_sub_agent">
+
+                            <Spinner
+                                android:id="@+id/sp_country"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:entries="@array/spn_countery">
+
+                            </Spinner>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <!-- .........Country code.......-->
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="3.6">
+
+                        <EditText
+                            android:id="@+id/et_country_code"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.8"
+                            android:background="@drawable/border_layout_sub_agent"
+                            android:gravity="center"
+                            android:hint="@string/country_code"
+                            android:inputType="number"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/et_areaCode"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.8"
+                            android:background="@drawable/border_layout_sub_agent"
+                            android:gravity="center"
+                            android:hint="@string/area_code"
+                            android:inputType="number"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                    <!-- .........PHONE NO.......-->
+
+                    <LinearLayout
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:layout_marginRight="3dp"
+                            android:id="@+id/et_id_country_code"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:background="@drawable/border_layout"
+                            android:hint="code"
+                            android:gravity="center_horizontal"
+                            android:inputType="phone"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textSize="14sp" />
+                        <EditText
+                            android:id="@+id/et_phone_no"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:background="@drawable/border_layout"
+                            android:hint="Contact No*"
+                            android:inputType="phone"
+                            android:padding="10dp"
+                            android:singleLine="true"
+                            android:text=""
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+                <!--..............CUSTOMER INFO ADDRESS................................-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/border_layout"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@color/greenontrack"
+                        android:padding="5dp"
+                        android:text="@string/tv_address_agent"
+                        android:textColor="@color/white" />
+
+
+                    <EditText
+                        android:focusable="false"
+                        android:id="@+id/etAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border_layout"
+                        android:hint="@string/tv_address_individual"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:inputType="textPostalAddress"
+                        android:text=""
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/et_street"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/border_layout"
+                        android:hint="@string/et_street"
+                        android:inputType="text"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/input_login"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/et_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/border_layout"
+                        android:hint="@string/et_city"
+                        android:inputType="textCapWords"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/input_login"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/et_postalcode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/border_layout"
+                        android:hint="@string/et_postal_code"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="@color/input_login"
+                        android:textSize="14sp" />
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/border_layout_sub_agent"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/greenontrack"
+                            android:padding="5dp"
+                            android:text="@string/proof_documets"
+                            android:textColor="@color/white" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_passport_document"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:text="@string/passport_doc"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tv_passport"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/greenontrack"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@string/choose_file"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_passport_path"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:text="@string/no_file_chosen"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_passport_doc"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/mtn"
+                        android:visibility="gone" />
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_dl_document"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:text="Driving License Document"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tv_dl_doc"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/greenontrack"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@string/choose_file"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_dl_doc_path"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:text="@string/no_file_chosen"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_dl_doc"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/mtn"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:weightSum="3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:text="@string/proof_res"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tv_residence"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@color/greenontrack"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="@string/choose_file"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_residence_path"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:padding="5dp"
+                            android:text="@string/no_file_chosen"
+                            android:textSize="12sp"
+                            android:visibility="gone" />
+
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_proof_residence"
+                        android:layout_width="90dp"
+                        android:layout_height="90dp"
+                        android:layout_gravity="center_horizontal"
+                        android:padding="10dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/mtn"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/txtFill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/fill_form"
+                    android:textAlignment="center"
+                    android:textColor="@color/red" />
+
+                <!-- Signup Button -->
+                <Button
+                    android:id="@+id/btnSubAgentRegister"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="15dp"
+                    android:padding="5dp"
+                    android:text="@string/tv_register"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:theme="@style/MyButton" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

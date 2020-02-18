@@ -1,17 +1,107 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Royal Mobile</string>
+    <array name="region_spinner">
+        <item>Choose a Region</item>
+        <item>Eastern Cape</item>
+        <item>KZN</item>
+        <item>Western Cape</item>
+        <item>Johannesburg</item>
+    </array>
 
+    <array name="authority_spinner">
+        <item>Authority</item>
+        <item>AGENT</item>
+    </array>
+    <array name="warehouse_spinner">
+        <item>Warehouse</item>
+        <item>JHB1</item>
+        <item>DBN</item>
+        <item>DBN2</item>
+        <item>DBN1</item>
+        <item>JHB</item>
+    </array>
+
+    <array name="stts_spinner">
+        <item>Enabled</item>
+        <item>Disabled</item>
+    </array>
+    <array name="title_spinner">
+        <item>Title</item>
+        <item>Mr.</item>
+        <item>Miss.</item>
+        <item>Mrs.</item>
+        <item>Dr.</item>
+        <item>Prof.</item>
+    </array>
+    <array name="id_spinner" tools:ignore="MissingDefaultResource">
+        <item>ID</item>
+        <item>PASSPORT</item>
+
+    </array>
+    <array name="doctype_spinner" tools:ignore="MissingDefaultResource">
+        <item>Choose DOC_TYPE</item>
+        <item>PHOTO</item>
+        <item>ID_COPY</item>
+        <item>SHOP_PIC</item>
+        <item>PASSPORT</item>
+        <item>ASYLUM_PERMIT</item>
+        <item>PROOF_OF_RESIDENCE</item>
+
+    </array>
+
+    <array name="province_spinner" tools:ignore="MissingDefaultResource">
+
+        <item>Province</item>
+        <item>Eastern Cape</item>
+        <item>Free State</item>
+        <item>Gauteng</item>
+        <item>KwaZulu-Natal</item>
+        <item>Limpopo</item>
+        <item>Mpumalanga</item>
+        <item>Northern Cape</item>
+        <item>North West</item>
+        <item>Western Cape</item>
+
+    </array>
+
+    <array name="select_Status">
+        <item>Select Status</item>
+        <item>Active</item>
+        <item>InActive</item>
+    </array>
+    <array name="select_network">
+        <item>Vodacom</item>
+        <item>MTN</item>
+        <item>Cell C</item>
+        <item>Telkom</item>
+    </array>
+    <array name="spn_id_password">
+        <item>ID</item>
+        <item>Passport No</item>
+        <item>Business Registration</item>
+    </array>
+    <array name="spn_yes">
+        <item>Yes</item>
+        <item>No</item>
+    </array>
+    <array name="spn_countery">
+        <item>South Africa</item>
+        <item>India</item>
+        <item>America</item>
+        <item>China</item>
+    </array>
+    <array name="spn_id_type">
+        <item>Id Number</item>
+        <item>Business Registration Number</item>
+        <item>Passport</item>dd
+    </array>
+    <string name="app_name">Royal Mobile</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_rica">Rica</string>
     <string name="title_activity_airtime">Airtime</string>
-
     <string name="update_handler"></string>
-    <string name="accept_agreement_rica">By continuing, I accept Rica\'s Terms and Service. Click here to read.</string>
-    <string name="map_box_token">pk.eyJ1IjoibXNpa3JpIiwiYSI6ImNrM2d5bWh4NjA0c3EzZHBoZmEwYXh4Y2oifQ.w6V3KZZRfzq64U9HvtcnFw</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Full Name</string>
@@ -69,6 +159,8 @@
     <string name="title_activity_fica_pop">Fica Proof of Address</string>
     <string name="title_activity_fica_person">Fica Person with ID PIC</string>
     <string name="title_activity_bill_payment_main">Bill Payment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_pay_dstv">Pay DSTV</string>
     <string name="title_activity_pay_utilities">Pay Utilities</string>
     <string name="title_activity_main_print">Main Activity Print</string>
@@ -80,11 +172,11 @@
     <string name="title_activity_main_menu_stokvel">MainMenuStokvel</string>
     <string name="title_activity_sell_airtimev">SellAirtimev</string>
     <string name="tab_text_1">Value Sim</string>
+
+    <!--main_activity-->
     <string name="tab_text_2">Normal Sim</string>
     <string name="tab_text_3">Tab 3</string>
     <string name="section_format">Hello World from section: %1$d</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_sell_airtime_new">Sell Airtime</string>
     <string name="title_activity_sell_airtime_new1">Sell Airtime</string>
@@ -96,8 +188,6 @@
     <string name="business">Business Registration Number</string>
     <string name="id_Number">Id Number</string>
     <string name="passport">Passport</string>
-
-    <!--main_activity-->
     <string name="connect">Search for and connect a Bluetooth printer</string>
     <string name="txt_content">&quot;&quot;</string>
     <string name="choose_paper_width">Paper width:</string>
@@ -110,6 +200,8 @@
     <string name="printpicture">Graphical Print</string>
     <string name="chosecommand">Please select instruction</string>
     <string name="btnClose">Close</string>
+
+    <!--  DeviceListActivity -->
     <string name="contentdescription"></string>
     <string name="btn_prttable">Print Form</string>
     <string name="Smallticketprinting">Small Ticket Printing</string>
@@ -117,141 +209,48 @@
     <string name="btn_scqr">Generate QR Code Print</string>
     <string name="btn_dyca">Turn on the camera</string>
     <string name="input">Please enter a print!</string>
+
     <string name="choose_printcoding"> &#8230; </string>
     <string name="big5">BIG5</string>
+
     <string name="thai">Thai</string>
     <string name="kor">Korean</string>
     <string name="gbk12">Simplified</string>
     <string name="arabic">Arabic</string>
     <string name="westeurope">CP1252</string>
-
-    <!--  DeviceListActivity -->
     <string name="scanning">Scanning Device&#8230;</string>
+
     <string name="select_device">Select the connected device</string>
     <string name="none_paired">No matching devices</string>
+
+    <!-- Status-->
     <string name="none_found">No device found</string>
+
     <string name="title_paired_devices">Match equipment</string>
+
     <string name="title_other_devices">Other useful equipment</string>
+
     <string name="button_scan">Scanning device</string>
 
     <string name="personal_info">Personal Info</string>
+
     <string name="tv_address">Address</string>
 
     <string name="et_streetno">Street No</string>
+
     <string name="et_street_name">Street Name</string>
+
     <string name="et_provinace">Province</string>
     <string name="et_suburb">Suburb</string>
+
     <string name="et_city">City</string>
+
     <string name="et_postal_code">Postal Code</string>
 
     <string name="lbl_Group_name">Group Name</string>
+
+
     <string name="permission">Permission Granted</string>
-
-    <!-- Status-->
-    <array name="region_spinner">
-        <item>Choose a Region</item>
-        <item>Eastern Cape</item>
-        <item>KZN</item>
-        <item>Western Cape</item>
-        <item>Johannesburg</item>
-    </array>
-
-    <array name="authority_spinner">
-        <item>Authority</item>
-        <item>AGENT</item>
-    </array>
-
-    <array name="warehouse_spinner">
-        <item>Warehouse</item>
-        <item>JHB1</item>
-        <item>DBN</item>
-        <item>DBN2</item>
-        <item>DBN1</item>
-        <item>JHB</item>
-    </array>
-
-    <array name="stts_spinner">
-        <item>Enabled</item>
-        <item>Disabled</item>
-    </array>
-
-    <array name="title_spinner">
-        <item>Title</item>
-        <item>Mr.</item>
-        <item>Miss.</item>
-        <item>Mrs.</item>
-        <item>Dr.</item>
-        <item>Prof.</item>
-    </array>
-
-    <array name="id_spinner" tools:ignore="MissingDefaultResource">
-        <item>ID</item>
-        <item>PASSPORT</item>
-
-    </array>
-
-    <array name="doctype_spinner" tools:ignore="MissingDefaultResource">
-        <item>Choose DOC_TYPE</item>
-        <item>PHOTO</item>
-        <item>ID_COPY</item>
-        <item>SHOP_PIC</item>
-        <item>PASSPORT</item>
-        <item>ASYLUM_PERMIT</item>
-        <item>PROOF_OF_RESIDENCE</item>
-
-    </array>
-
-    <array name="province_spinner" tools:ignore="MissingDefaultResource">
-
-        <item>Province</item>
-        <item>Eastern Cape</item>
-        <item>Free State</item>
-        <item>Gauteng</item>
-        <item>KwaZulu-Natal</item>
-        <item>Limpopo</item>
-        <item>Mpumalanga</item>
-        <item>Northern Cape</item>
-        <item>North West</item>
-        <item>Western Cape</item>
-
-    </array>
-
-    <array name="select_Status">
-        <item>Select Status</item>
-        <item>Active</item>
-        <item>InActive</item>
-    </array>
-    <array name="select_network">
-        <item>Vodacom</item>
-        <item>MTN</item>
-        <item>Cell C</item>
-        <item>Telkom</item>
-    </array>
-
-    <array name="spn_id_password">
-        <item>ID</item>
-        <item>Passport No</item>
-        <item>Business Registration</item>
-    </array>
-
-    <array name="spn_yes">
-        <item>Yes</item>
-        <item>No</item>
-    </array>
-
-    <array name="spn_countery">
-        <item>South Africa</item>
-        <item>India</item>
-        <item>America</item>
-        <item>China</item>
-    </array>
-
-
-    <array name="spn_id_type">
-        <item>Id Number</item>
-        <item>Business Registration Number</item>
-        <item>Passport</item>dd
-    </array>
 
     <!--  Message -->
     <string name="msg_state">Input Error!</string>
@@ -316,5 +315,12 @@
     <string name="menu_send">Send</string>
     <string name="title_activity_assign_batches_tab">AssignBatchesTab</string>
     <string name="title_activity_assign_batch_tab">AssignBatchTab</string>
+    <string name="accept_agreement_rica">By continuing, I accept Rica\'s Terms and Service. Click here to read.</string>
+    <string name="map_box_token">pk.eyJ1IjoibXNpa3JpIiwiYSI6ImNrM2d5bWh4NjA0c3EzZHBoZmEwYXh4Y2oifQ.w6V3KZZRfzq64U9HvtcnFw</string>
+    <string name="tv_address_individual">Address</string>
+    <string name="et_street">Street</string>
+    <string name="proof_res">Proof Residence</string>
+    <string name="contact_detiails">Contact Details</string>
+    <string name="dantel_mobile">Dantel Mobile</string>
 
 </resources>

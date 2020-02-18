@@ -14,6 +14,8 @@ public class Pref {
     public static final String CITY = "city";
     public static final String FNAME = "firstName";
     public static final String USER_ID = "USER_ID";
+    public static final String SUBURB ="suburb";
+    public static final String IS_RICA = "isRica";
     public static SharedPreferences getPref(Context context) {
         return PreferenceManager.getDefaultSharedPreferences(context);
     }
@@ -57,6 +59,30 @@ public class Pref {
     public static String getBatchID(Context context) {
         return getPref(context).getString(BATCH_ID, null);
     }
+
+    // for suburb
+    public static void setSuburb(Context context,String suburb)
+    {
+        getPref(context).edit().putString(SUBURB,suburb).commit();
+    }
+    public static String getSuburb(Context context) {
+        return getPref(context).getString(SUBURB, null);
+    }
+
+    // for rica value
+    public static void setIsRica(Context context,String isRica)
+    {
+        getPref(context).edit().putString(IS_RICA,isRica).commit();
+    }
+    public static String getIsRica(Context context) {
+        return getPref(context).getString(IS_RICA, "false");
+    }
+    public static void removeIsRica(Context context)
+    {
+        getPref(context).edit().remove(IS_RICA).commit();
+    }
+
+    // for city
 
     public static void setCity(Context context,String city)
     {

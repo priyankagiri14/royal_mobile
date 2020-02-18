@@ -32,6 +32,8 @@ import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.app.mobile.royal.Agent.UpdateAgentRicaGroupName.UpdateAgentRicaGroupAgent;
+import com.app.mobile.royal.Web_Services.MyApp;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.places.Places;
@@ -190,11 +192,16 @@ public class Agent_Mainactivity extends AppCompatActivity implements View.OnClic
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.clear();
                         editor.apply();
+                        Pref.removeIsRica(MyApp.getContext());
 
                         Intent i = new Intent(Agent_Mainactivity.this, Navigation_Main.class);
                         startActivity(i);
                         finish();
                     }
+                }
+                if (menuItem.getItemId() == R.id.update_group_rica_agent) {
+                    Intent intent = new Intent(Agent_Mainactivity.this, UpdateAgentRicaGroupAgent.class);
+                    startActivity(intent);
                 }
                 if (menuItem.getItemId() == R.id.bulkrica) {
                     Intent intent = new Intent(Agent_Mainactivity.this, OfflineRica.class);
